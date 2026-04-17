@@ -1,37 +1,87 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Talisman Online Rebirth</title>
     <style>
-        body { margin: 0; font-family: Arial, sans-serif; background: url('path_to_waterfall_background.jpg') no-repeat center center fixed; background-size: cover; }
-        header { display: flex; justify-content: space-around; padding: 20px; background: rgba(0, 0, 0, 0.7); }
-        nav a { color: #fff; text-decoration: none; padding: 10px 15px; }
-        .hero { text-align: center; padding: 100px 20px; color: white; }
-        .hero h1 { font-size: 3em; }
-        .hero button { padding: 10px 20px; background: #ff5722; border: none; color: white; font-size: 1.2em; cursor: pointer; }
-        .latest-news { margin: 20px; padding: 20px; background: rgba(255, 255, 255, 0.8); border-radius: 5px; }
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+        }
+        header {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header nav a {
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+        }
+        .hero {
+            text-align: center;
+            margin-top: 100px;
+        }
+        .hero h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+        .download-btn {
+            background-color: #ffcc00;
+            padding: 15px 30px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            color: black;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .download-btn:hover {
+            background-color: #e6b800;
+        }
+        .news {
+            margin-top: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .news h2 {
+            text-align: center;
+            font-size: 30px;
+        }
+        .news-item {
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.7);
+            margin: 15px 0;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
     <header>
+        <h1>Talisman Online Rebirth</h1>
         <nav>
-            <a href="#lar">LAR</a>
-            <a href="#informacoes">INFORMAÇÕES</a>
-            <a href="#regras">REGRAS</a>
-            <a href="#recarregar">RECARREGAR</a>
-            <a href="#registre-se">REGISTRE-SE</a>
-            <a href="#conecte-se">CONECTE-SE</a>
+            <a href="#">Home</a>
+            <a href="#">Games</a>
+            <a href="#">News</a>
+            <a href="#">Contact</a>
         </nav>
     </header>
     <div class="hero">
-        <h1>Talisman Online Rebirth</h1>
-        <button>Download Now</button>
+        <h1>Welcome to Talisman Online Rebirth</h1>
+        <a href="#" class="download-btn">Download Now</a>
     </div>
-    <div class="latest-news">
+    <div class="news">
         <h2>Latest News</h2>
-        <p>Stay tuned for the latest updates and events!</p>
+        <div class="news-item">New update available! Check out the new features.</div>
+        <div class="news-item">Join our community events this weekend!</div>
+        <div class="news-item">Stay tuned for upcoming game releases.</div>
     </div>
 </body>
 </html>
