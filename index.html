@@ -4,84 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Talisman Online Rebirth</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background: url('background.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-        }
-        header {
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        header nav a {
-            color: white;
-            text-decoration: none;
-            padding: 15px;
-        }
-        .hero {
-            text-align: center;
-            margin-top: 100px;
-        }
-        .hero h1 {
-            font-size: 50px;
-            margin-bottom: 20px;
-        }
-        .download-btn {
-            background-color: #ffcc00;
-            padding: 15px 30px;
-            font-size: 20px;
-            border: none;
-            cursor: pointer;
-            color: black;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-        .download-btn:hover {
-            background-color: #e6b800;
-        }
-        .news {
-            margin-top: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .news h2 {
-            text-align: center;
-            font-size: 30px;
-        }
-        .news-item {
-            padding: 15px;
-            background-color: rgba(0, 0, 0, 0.7);
-            margin: 15px 0;
-            border-radius: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <h1>Talisman Online Rebirth</h1>
         <nav>
-            <a href="#">Home</a>
-            <a href="#">Games</a>
-            <a href="#">News</a>
-            <a href="#">Contact</a>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#footer">Contact</a></li>
+            </ul>
         </nav>
     </header>
-    <div class="hero">
-        <h1>Welcome to Talisman Online Rebirth</h1>
-        <a href="#" class="download-btn">Download Now</a>
-    </div>
-    <div class="news">
+
+    <section id="hero">
+        <h2>Welcome to the World of Talisman</h2>
+        <p>Your adventure begins here!</p>
+        <button>Play Now</button>
+    </section>
+
+    <section id="news">
         <h2>Latest News</h2>
-        <div class="news-item">New update available! Check out the new features.</div>
-        <div class="news-item">Join our community events this weekend!</div>
-        <div class="news-item">Stay tuned for upcoming game releases.</div>
-    </div>
+        <div class="tabs">
+            <button class="tablink active" onclick="openTab(event, 'updates')">Updates</button>
+            <button class="tablink" onclick="openTab(event, 'events')">Events</button>
+        </div>
+        <div id="updates" class="tabcontent active">
+            <h3>Game Updates</h3>
+            <p>Check out the latest changes and improvements!</p>
+        </div>
+        <div id="events" class="tabcontent">
+            <h3>Events</h3>
+            <p>Don't miss our exciting in-game events!</p>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <p>&copy; 2026 Talisman Online Rebirth. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
 </body>
 </html>
