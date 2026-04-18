@@ -27,28 +27,9 @@ body::before{
     z-index:-1;
 }
 
-/* FOG */
-body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    background: url('https://i.imgur.com/8IuucQZ.png');
-    opacity:0.15;
-    animation: fogMove 60s linear infinite;
-    z-index:1;
-    pointer-events:none;
-}
 
-/* PARTICLES */
-canvas{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index:2;
-    pointer-events:none;
-}
+
+
 
 /* HEADER */
 header{
@@ -281,14 +262,13 @@ footer{
   font-size:22px;
   color:#ffd700;
 }
-}
 
 </style>
 </head>
 
 <body>
 
-<canvas id="particles"></canvas>
+
 
 <header>
     <div class="logo">
@@ -382,61 +362,7 @@ footer{
 </footer>
 
 <script>
-const canvas = document.getElementById('particles');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
 
-let particles = [];
-let mouse = {x:0,y:0};
-
-window.addEventListener('mousemove',e=>{
-    mouse.x = e.x;
-    mouse.y = e.y;
-});
-
-for(let i=0;i<150;i++){
-    particles.push({
-        x: Math.random()*canvas.width,
-        y: Math.random()*canvas.height,
-        r: Math.random()*2,
-        d: Math.random()*2
-    });
-}
-
-function draw(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    ctx.fillStyle = 'rgba(255,200,0,0.8)';
-    ctx.beginPath();
-    particles.forEach(p=>{
-        ctx.moveTo(p.x,p.y);
-        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    });
-    ctx.fill();
-    update();
-}
-
-function update(){
-    particles.forEach(p=>{
-        p.y += p.d;
-
-        let dx = mouse.x - p.x;
-        let dy = mouse.y - p.y;
-        let dist = Math.sqrt(dx*dx+dy*dy);
-
-        if(dist < 120){
-            p.x -= dx*0.02;
-            p.y -= dy*0.02;
-        }
-
-        if(p.y > canvas.height){
-            p.y = 0;
-            p.x = Math.random()*canvas.width;
-        }
-    });
-}
-
-setInterval(draw,33);
 
 window.addEventListener('resize',()=>{
     canvas.width = window.innerWidth;
