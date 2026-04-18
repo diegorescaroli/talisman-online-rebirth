@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talisman Online Rebirth - AWAKENING</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: Arial, sans-serif;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('background.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+            min-height: 100vh;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0,0,0,0.9);
+            border-bottom: 3px solid #ffd700;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo { font-size: 2.2em; color: #ffd700; font-weight: bold; text-shadow: 0 0 10px rgba(255,215,0,0.5); }
+        nav { display: flex; gap: 40px; }
+        nav a { color: #ccc; text-decoration: none; font-weight: bold; transition: all 0.3s; letter-spacing: 1px; }
+        nav a:hover { color: #ffd700; text-shadow: 0 0 10px rgba(255,215,0,0.7); }
+        .buttons { display: flex; gap: 15px; }
+        .btn-login { padding: 10px 20px; border: 2px solid #ffd700; color: #ffd700; background: transparent; cursor: pointer; transition: 0.3s; }
+        .btn-login:hover { background: #ffd700; color: #000; }
+        .btn-register { padding: 10px 20px; border: 2px solid #ff6b35; color: #ff6b35; background: transparent; cursor: pointer; transition: 0.3s; }
+        .btn-register:hover { background: #ff6b35; color: #000; }
+        .hero {
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 50px;
+            background: linear-gradient(135deg, rgba(255,107,53,0.15) 0%, rgba(0,0,0,0.6) 100%);
+        }
+        .hero-content h1 { font-size: 4.5em; color: #ffd700; margin-bottom: 10px; text-shadow: 0 0 30px rgba(255,215,0,0.7); letter-spacing: 3px; }
+        .hero-content h2 { font-size: 3em; color: #fff; margin-bottom: 30px; text-shadow: 0 0 20px rgba(255,107,53,0.8); }
+        .hero-content p { font-size: 1.2em; margin-bottom: 40px; line-height: 1.8; }
+        .btn-download {
+            padding: 18px 50px;
+            background: linear-gradient(135deg, #ff6b35, #ff8c5a);
+            color: white;
+            border: 2px solid #ff6b35;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 0 25px rgba(255,107,53,0.6);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .btn-download:hover { transform: scale(1.08); box-shadow: 0 0 40px rgba(255,107,53,0.9); }
+        .news-section {
+            padding: 80px 50px;
+            background: rgba(0,0,0,0.9);
+            border-top: 3px solid #ffd700;
+        }
+        .section-title { font-size: 2.8em; color: #ffd700; text-shadow: 0 0 15px rgba(255,215,0,0.5); margin-bottom: 40px; text-align: center; }
+        .news-tabs { display: flex; gap: 25px; margin-bottom: 40px; border-bottom: 2px solid rgba(255,215,0,0.2); padding-bottom: 20px; justify-content: center; flex-wrap: wrap; }
+        .news-tabs a { color: #ccc; text-decoration: none; cursor: pointer; padding: 12px 20px; border-bottom: 3px solid transparent; transition: all 0.3s; font-weight: bold; }
+        .news-tabs a:hover, .news-tabs a.active { color: #ffd700; border-bottom-color: #ffd700; }
+        .news-items { display: flex; flex-direction: column; gap: 20px; }
+        .news-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px;
+            background: rgba(255,107,53,0.08);
+            border-left: 5px solid #ff6b35;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .news-item:hover { background: rgba(255,107,53,0.15); transform: translateX(15px); box-shadow: 0 0 20px rgba(255,107,53,0.3); }
+        .news-item-title { font-size: 1.2em; color: #ffd700; margin-bottom: 8px; font-weight: bold; }
+        .news-item-desc { color: #aaa; font-size: 0.95em; }
+        .news-item-date { color: #999; font-size: 0.9em; min-width: 100px; text-align: right; }
+        footer { text-align: center; padding: 40px 20px; background: rgba(0,0,0,0.95); border-top: 3px solid #ffd700; color: #999; }
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; padding: 15px; }
+            nav { gap: 15px; flex-direction: column; }
+            .buttons { width: 100%; flex-direction: column; }
+            .hero { flex-direction: column; padding: 40px 20px; }
+            .hero-content h1 { font-size: 2.5em; }
+            .hero-content h2 { font-size: 1.8em; }
+            .news-section { padding: 40px 20px; }
+            .section-title { font-size: 2em; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">⚔️ TALISMAN</div>
+        <nav>
+            <a href="#home">LAR</a>
+            <a href="#info">INFORMAÇÕES</a>
+            <a href="#rules">REGRAS</a>
+            <a href="#recharge">RECARREGAR</a>
+        </nav>
+        <div class="buttons">
+            <button class="btn-login">CONECTE-SE</button>
+            <button class="btn-register">REGISTRE-SE</button>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>TALISMAN</h1>
+            <h2>ONLINE REBIRTH</h2>
+            <p>Prepare-se para a maior aventura de sua vida. Explore mundos épicos, derrote poderosos inimigos e se torne uma lenda.</p>
+            <button class="btn-download">📥 DOWNLOAD AGORA</button>
+        </div>
+    </section>
+
+    <section class="news-section" id="news">
+        <h2 class="section-title">⚡ ÚLTIMAS NOTÍCIAS</h2>
+        <div class="news-tabs">
+            <a class="active" onclick="filterNews(this)">Todas as atualizações</a>
+            <a onclick="filterNews(this)">🏆 Eventos</a>
+            <a onclick="filterNews(this)">✨ Atualizações</a>
+        </div>
+        <div class="news-items">
+            <div class="news-item">
+                <div>
+                    <div class="news-item-title">🏆 NOVO TORNEIO GLOBAL - PRÊMIOS INCRÍVEIS!</div>
+                    <div class="news-item-desc">Compita com jogadores do mundo todo e ganhe recompensas exclusivas</div>
+                </div>
+                <div class="news-item-date">18/04/2026</div>
+            </div>
+            <div class="news-item">
+                <div>
+                    <div class="news-item-title">✨ ATUALIZAÇÃO GRANDE - NOVO MAPA ÉPICO</div>
+                    <div class="news-item-desc">Explore terras misteriosas e descubra novos segredos da dimensão perdida</div>
+                </div>
+                <div class="news-item-date">17/04/2026</div>
+            </div>
+            <div class="news-item">
+                <div>
+                    <div class="news-item-title">🎁 PROMOÇÃO ESPECIAL - 50% DE DESCONTO!</div>
+                    <div class="news-item-desc">Oferta limitada em todos os pacotes premium do jogo</div>
+                </div>
+                <div class="news-item-date">16/04/2026</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Talisman Online Rebirth. Todos os direitos reservados. | Desenvolvido com ❤️</p>
+    </footer>
+
+    <script>
+        function filterNews(element) {
+            document.querySelectorAll('.news-tabs a').forEach(a => a.classList.remove('active'));
+            element.classList.add('active');
+        }
+        document.querySelector('.btn-download').addEventListener('click', function() {
+            alert('🎮 Bem-vindo ao Talisman Online Rebirth!\n\nEm breve você será redirecionado para o download.');
+        });
+    </script>
+</body>
+</html>
